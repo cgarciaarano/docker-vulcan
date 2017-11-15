@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y install libhiredis-dev git &&\
 
 FROM debian:latest
 LABEL authors="cgarciaarano@gmail.com"
-
+RUN apt-get update && apt-get -y install libhiredis0.13
 COPY --from=builder /opt/vulcan/vulcan /vulcan
-ENTRYPOINT ['/vulcan']
+ENTRYPOINT ['./vulcan']
 
